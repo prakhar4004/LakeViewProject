@@ -1,0 +1,55 @@
+@mixin center-object {
+	left:50%;
+	transform:translate(-50%,-50%);
+	text-align:center;
+}
+
+@mixin clearfix {
+	&::after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+}
+
+@mixin top-border {
+		border-top:1px solid $grey-dark;
+		padding-top:2rem;
+		display:inline-block;
+}
+
+/* MEDIA QUERY BREAKPOINTS 
+    0-576px for portrait phones.
+    577-768px for tablets in portrait mode.
+    769-991 for tablets in landcape mode.
+    992-1200px for laptops.
+    1200px+ for large devices.
+
+
+*/
+@mixin respond($breakpoint) {
+	@if $breakpoint==phone {
+		@media only screen and (max-width:36em) {  
+			@content;
+		}
+	}
+
+	@if $breakpoint==tab-port {
+		@media only screen and (max-width:48em) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==tab-land {
+		@media only screen and (max-width:61.9em) {
+			@content;
+		}
+	}
+
+	@if $breakpoint==big-desktop {
+		@media only screen and (min-width:75em) {
+			@content;
+		}
+	}
+	
+}

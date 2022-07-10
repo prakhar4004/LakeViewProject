@@ -1,0 +1,219 @@
+.plan {
+	height:47rem;
+	color:$white;
+	perspective:150rem;
+	
+	position:relative;
+
+	@include respond(tab-port) {
+		height:auto;
+		background-color:$white;
+		margin-bottom:1.5rem;
+	}
+	
+
+	&__side {
+
+			position:absolute;
+			left:0;
+			top:0;
+			backface-visibility:hidden;
+			height:100%;
+			width:100%;
+			transition:all .9s;
+			
+			
+			box-shadow: 0 1.5rem 4rem rgba($black,.15);
+			
+			overflow:hidden;
+
+			@include respond(tab-port) {
+				height:auto;
+				position:relative;
+				box-shadow:none;
+				border-radius:0;
+			}
+
+			
+		&--front {
+			background-color:$white;
+			border-radius: 30px 0 30px 0;
+			
+			@include respond(tab-port) {
+				border-radius:0;
+			}
+		}
+
+
+		&--back {
+			background-color:$primary-light;
+			transform:rotateY(180deg);
+			border-radius: 0 30px 0 30px;
+
+			@include respond(tab-port) {
+				transform:rotateY(0);
+				-webkit-clip-path:polygon(0 15%,100% 0, 100% 100%, 0 100%);
+				clip-path:polygon(0 15%,100% 0, 100% 100%, 0 100%);
+				border-radius: 0;
+			}
+
+			
+			&-1 {
+				background-image:linear-gradient(to right bottom,$secondary-1, $secondary-1-dark);
+			}
+
+			&-2 {
+				background-image:linear-gradient(to right bottom,$secondary-2, $secondary-2-dark);
+			}
+
+			&-3 {
+				background-image:linear-gradient(to right bottom,$secondary-3, $secondary-3-dark);
+			}
+		}
+
+		
+	}
+
+	&:hover &__side--front{
+			transform:rotateY(-180deg);
+
+			@include respond(tab-port) {
+				transform:rotateY(0);
+
+			}
+			
+	}
+
+	&:hover &__side--back {
+			transform:rotateY(0);
+	}
+
+	&__image {
+
+		
+		height:18rem;
+		background-size:cover;
+
+		@supports (background-blend-mode:overlay) {
+			background-blend-mode:overlay;
+
+		}
+		
+		clip-path:polygon(0 0,100% 0, 100% 80%, 0 100%);
+
+
+		&--1 {
+				background-image:linear-gradient(to right bottom, rgba($secondary-1,0.5), rgba($secondary-1-dark,0.5)), url(img/plan-img-1.jpg);
+			
+				@supports (background-blend-mode:overlay) {
+					background-image:linear-gradient(to right bottom, $secondary-1, $secondary-1-dark), url(img/plan-img-1.jpg);
+					
+				}
+		}
+
+		&--2 {
+			background-image:linear-gradient(to right bottom, rgba($secondary-2,0.5), rgba($secondary-2-dark,0.5)), url(img/plan-img-2.jpg);
+
+			@supports (background-blend-mode:overlay) {
+					background-image:linear-gradient(to right bottom, $secondary-2, $secondary-2-dark), url(img/plan-img-2.jpg);
+					
+				}
+			
+		}
+
+		&--3 {
+			background-image:linear-gradient(to right bottom, rgba($secondary-3,0.5), rgba($secondary-3-dark,0.5)), url(img/plan-img-3.jpg);
+
+			@supports (background-blend-mode:overlay) {
+					background-image:linear-gradient(to right bottom, $secondary-3, $secondary-3-dark), url(img/plan-img-3.jpg);
+					
+				}
+			
+		}
+	}
+
+	&__heading {
+		color:$white;
+		font-weight:400;
+		font-size:2.8rem;
+		text-transform:uppercase;
+		position:absolute;
+		top:9rem;
+		right:2rem;
+		width:20rem;
+		text-align:right;
+		padding:1rem 1.5rem;
+
+		&--1 {
+			background-image:linear-gradient(to right bottom, rgba($secondary-1,.7), rgba($secondary-1-dark,.7));
+		}
+
+		&--2 {
+			background-image:linear-gradient(to right bottom, rgba($secondary-2,.7), rgba($secondary-2,.7));
+		}
+
+		&--3 {
+			background-image:linear-gradient(to right bottom, rgba($secondary-3,.7), rgba($secondary-3-dark,.7));
+		}
+	}
+
+	&__bullets {
+		padding:3rem;
+		ul {
+			color:$grey-dark;
+			list-style:none;
+			width:90%;
+			margin:0 auto;
+
+			li {
+				text-align:center;
+				font-size:1.3rem;
+				padding:2rem;
+
+				&:not(:last-child) {
+					border-bottom:1px solid $grey-light-2;
+				}
+				
+			}
+		}
+	}
+
+	&__button {
+		position:absolute;
+		top:50%;
+		@include center-object;
+		width:90%;
+		text-align:center;
+
+		@include respond(tab-port) {
+			position:relative;
+			top:0;
+			left:0;
+			transform:translate(0);
+			width:100%;
+			padding:4rem;
+		}
+
+
+	}
+
+	&__cost-box {
+		color:$white;
+		margin-bottom:16rem;
+
+		@include respond(tab-port) {
+			margin-bottom:3rem;
+		}
+	}
+
+	&__cost-value {
+		font-size:4.5rem;
+		font-weight:100;
+	}
+
+	&__cost-duration {
+		font-size:1.5rem;
+		text-transform:uppercase;
+	}
+
+}

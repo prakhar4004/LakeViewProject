@@ -1,0 +1,110 @@
+.form {
+
+	&__input {
+		font-size:1.5rem;
+		padding:1.5rem 2rem;
+		background-color:rgba($white,.5);
+		border:none;
+		width:100%;
+		border-radius:2px;
+		color:$grey-dark-3;
+		font-family:inherit;
+		opacity:1;
+		border-bottom:3px solid transparent;
+
+		&::-webkit-input-placeholder {
+			color:$grey-dark-3;
+		}
+
+		&:focus {
+			outline:none;
+			box-shadow:0 1rem 2rem rgba($black,.1);
+			border-bottom:3px solid $primary-dark;
+		}
+
+		&:invalid {
+			border-bottom:3px solid $secondary-1-dark;
+		}
+
+	}
+
+	&__input:placeholder-shown + &__label {
+		opacity:0;
+		transform:translateY(-4rem);
+	}
+	
+
+	&__label {
+		font-size:1.5rem;
+		font-weight:700;
+		margin-left:2rem;
+		margin-top:.7rem;
+		color:$white;
+		display:block;
+		transition:all .3s;
+	}
+
+	&__group {
+		margin-bottom:3rem;
+	}
+
+	&__radio-group {
+		display:inline-block;
+		width:30%;
+
+	}
+
+	&__radio-input:checked + &__radio-label &__radio-button::after {
+		opacity:1;
+	}
+
+	&__radio-label {
+		font-size:$default-font-size;
+		color:$white;
+		display:inline-block;
+		cursor:pointer;
+		padding-left:5rem;
+		position:relative;
+	}
+
+	&__radio-input {
+		display:none;
+	}
+
+	&__radio-button {
+		height:3rem;
+		width:3rem;
+		border-radius:50%;
+		background-image:url(img/golf-ball-texture-small.jpg);
+		display:inline-block;
+		position:absolute;
+		top:0;
+		left:0;
+
+		&::after {
+			content:"";
+			display:block;
+			height:1.3rem;
+			width:1.3rem;
+			border-radius:50%;
+			background-color:$primary-light;
+			position:absolute;
+			top:50%;
+			@include center-object;
+			opacity:0;
+			transition:opacity .2s;
+		}
+	}
+
+	&__textarea {
+	border-radius:2px;
+	background-color:rgba($white,.5);
+	border:none;
+	font-family:inherit;
+	color:$grey-dark-3;
+	width:100%;
+	height:10rem;
+	padding:1.5rem 1rem;
+	}
+
+}
